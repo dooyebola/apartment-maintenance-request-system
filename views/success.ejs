@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Request Submitted</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-brand">🏢 Apartment Maintenance</div>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/requests/new">Submit Request</a>
+      <a href="/requests">Requests</a>
+      <a href="/health">Health</a>
+    </div>
+  </nav>
+
+  <main class="page">
+    <section class="container">
+      <p class="eyebrow">Submission Complete</p>
+      <h1>Request Submitted Successfully</h1>
+
+      <div class="success-box">
+        <p><strong>Request ID:</strong> #<%= request.id %></p>
+        <p><strong>Tenant:</strong> <%= request.tenantName %></p>
+        <p><strong>Apartment:</strong> <%= request.apartmentNumber %></p>
+        <p><strong>Category:</strong> <%= request.category %></p>
+        <p><strong>Urgency:</strong> <%= request.urgency %></p>
+        <p><strong>Status:</strong> <%= request.status %></p>
+        <p><strong>Uploaded File:</strong> <%= request.fileName %></p>
+      </div>
+
+      <div class="button-group">
+        <a href="/requests" class="btn">View All Requests</a>
+        <a href="/requests/new" class="btn secondary">Submit Another Request</a>
+        <a href="/" class="btn health">Back Home</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Request stored temporarily for local demo tracking.</p>
+  </footer>
+</body>
+</html>

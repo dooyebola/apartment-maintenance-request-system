@@ -1,24 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Apartment Maintenance Request System</title>
-  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
-  <div class="container">
-    <h1>Apartment Maintenance Request System</h1>
-
-    <p>
-      Welcome to the Apartment Maintenance Request System. Tenants can submit
-      maintenance requests, upload supporting files, and track request status updates.
-    </p>
-
-    <div class="button-group">
-      <a href="/requests/new" class="btn">Submit New Request</a>
-      <a href="/requests" class="btn secondary">View Requests</a>
-      <a href="/health" class="btn health">Health Check</a>
+  <nav class="navbar">
+    <div class="nav-brand">🏢 Apartment Maintenance</div>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/requests/new">Submit Request</a>
+      <a href="/requests">Requests</a>
+      <a href="/health">Health</a>
     </div>
-  </div>
+  </nav>
+
+  <main class="hero">
+    <section class="hero-card">
+      <p class="eyebrow">Software Engineering Final Project</p>
+      <h1>Apartment Maintenance Request System</h1>
+      <p>
+        A simple web application that helps tenants submit maintenance requests,
+        upload supporting files, and track request status updates.
+      </p>
+
+      <div class="hero-actions">
+        <a href="/requests/new" class="btn">Submit New Request</a>
+        <a href="/requests" class="btn secondary">View Requests</a>
+        <a href="/health" class="btn health">Health Check</a>
+      </div>
+
+      <div class="feature-list">
+        <div class="feature">✅ Secure request workflow planning</div>
+        <div class="feature">✅ File upload validation support</div>
+        <div class="feature">✅ Request status tracking</div>
+        <div class="feature">✅ Backend health check endpoint</div>
+      </div>
+    </section>
+
+    <aside class="hero-side">
+      <div class="stat-card">
+        <span><%= requestCount %></span>
+        <p>Total maintenance request(s) submitted in this demo session</p>
+      </div>
+
+      <div class="stat-card">
+        <span>SDLC</span>
+        <p>Requirements, design, implementation, testing, deployment, and maintenance</p>
+      </div>
+    </aside>
+  </main>
+
+  <footer class="footer">
+    <p>Created by Ayesha Siddiqua and David Oyebola • Team 2</p>
+  </footer>
 </body>
 </html>

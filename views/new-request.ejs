@@ -1,54 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Submit Maintenance Request</title>
-  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
-  <div class="container">
-    <h1>Submit Maintenance Request</h1>
+  <nav class="navbar">
+    <div class="nav-brand">🏢 Apartment Maintenance</div>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/requests/new">Submit Request</a>
+      <a href="/requests">Requests</a>
+      <a href="/health">Health</a>
+    </div>
+  </nav>
 
-    <% if (error) { %>
-      <div class="error"><%= error %></div>
-    <% } %>
+  <main class="page">
+    <section class="page-header">
+      <p class="eyebrow">Tenant Request Form</p>
+      <h1>Submit Maintenance Request</h1>
+      <p>
+        Enter the maintenance issue details below. Supporting files may include
+        images or PDFs for local demo validation.
+      </p>
+    </section>
 
-    <form action="/requests" method="POST" enctype="multipart/form-data">
-      <label>Tenant Name</label>
-      <input type="text" name="tenantName" placeholder="Enter tenant name" required>
+    <section class="container">
+      <% if (error) { %>
+        <div class="error"><%= error %></div>
+      <% } %>
 
-      <label>Apartment Number</label>
-      <input type="text" name="apartmentNumber" placeholder="Example: A203" required>
+      <form action="/requests" method="POST" enctype="multipart/form-data">
+        <label>Tenant Name</label>
+        <input type="text" name="tenantName" placeholder="Example: David Oyebola" required />
 
-      <label>Maintenance Category</label>
-      <select name="category" required>
-        <option value="">Select category</option>
-        <option value="Plumbing">Plumbing</option>
-        <option value="Electrical">Electrical</option>
-        <option value="Heating/Cooling">Heating/Cooling</option>
-        <option value="Appliance">Appliance</option>
-        <option value="General Repair">General Repair</option>
-      </select>
+        <label>Apartment Number</label>
+        <input type="text" name="apartmentNumber" placeholder="Example: A203" required />
 
-      <label>Urgency Level</label>
-      <select name="urgency" required>
-        <option value="">Select urgency</option>
-        <option value="Low">Low</option>
-        <option value="Medium">Medium</option>
-        <option value="High">High</option>
-        <option value="Emergency">Emergency</option>
-      </select>
+        <label>Maintenance Category</label>
+        <select name="category" required>
+          <option value="">Select category</option>
+          <option value="Plumbing">Plumbing</option>
+          <option value="Electrical">Electrical</option>
+          <option value="Heating/Cooling">Heating/Cooling</option>
+          <option value="Appliance">Appliance</option>
+          <option value="General Repair">General Repair</option>
+        </select>
 
-      <label>Description</label>
-      <textarea name="description" rows="5" placeholder="Describe the maintenance issue" required></textarea>
+        <label>Urgency Level</label>
+        <select name="urgency" required>
+          <option value="">Select urgency</option>
+          <option value="Low">Low</option>
+          <option value="Medium">Medium</option>
+          <option value="High">High</option>
+          <option value="Emergency">Emergency</option>
+        </select>
 
-      <label>Upload Supporting File</label>
-      <input type="file" name="supportingFile">
+        <label>Description</label>
+        <textarea name="description" rows="5" placeholder="Describe the maintenance issue clearly." required></textarea>
 
-      <button type="submit" class="btn">Submit Request</button>
-    </form>
+        <label>Upload Supporting File</label>
+        <input type="file" name="supportingFile" />
 
-    <a href="/" class="back-link">Back to Home</a>
-  </div>
+        <button type="submit" class="btn">Submit Request</button>
+      </form>
+
+      <a href="/" class="back-link">← Back to Home</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Apartment Maintenance Request System • Local Demo</p>
+  </footer>
 </body>
 </html>
