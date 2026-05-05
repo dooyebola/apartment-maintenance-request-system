@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Maintenance Requests</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="container wide">
+    <h1>Maintenance Requests</h1>
+
+    <% if (requests.length === 0) { %>
+      <p>No maintenance requests have been submitted yet.</p>
+    <% } else { %>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Tenant</th>
+            <th>Apartment</th>
+            <th>Category</th>
+            <th>Urgency</th>
+            <th>Status</th>
+            <th>File</th>
+            <th>Created</th>
+            <th>Update Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% requests.forEach(request => { %>
+            <tr>
+              <td><%= request.id %></td>
+              <td><%= request.tenantName %></td>
+              <td><%= request.apartmentNumber %></td>
+              <td><%= request.category %></td>
+              <td><%= request.urgency %></td>
+              <td><span class="status"><%= request.status %></span></td>
+              <td><%= request.fileName %></td>
+              <td><%= request.createdAt %></td>
+              <td>
+                <form action="/requests/<%= request.id %>/status" method="POST">
+                  <select name="status">
+                    <option value="Pending">Pending</option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Completed">Completed</option>
+                    <option value="Failed">Failed</option>
+                  </select>
+                  <button type="submit" class="small-btn">Update</button>
+                </form>
+              </td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    <% } %>
+
+    <div class="button-group">
+      <a href="/requests/new" class="btn">Submit New Request</a>
+      <a href="/" class="btn secondary">Back Home</a>
+    </div>
+  </div>
+</body>
+</html>

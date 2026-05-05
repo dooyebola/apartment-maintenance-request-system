@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Submit Maintenance Request</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Submit Maintenance Request</h1>
+
+    <% if (error) { %>
+      <div class="error"><%= error %></div>
+    <% } %>
+
+    <form action="/requests" method="POST" enctype="multipart/form-data">
+      <label>Tenant Name</label>
+      <input type="text" name="tenantName" placeholder="Enter tenant name" required>
+
+      <label>Apartment Number</label>
+      <input type="text" name="apartmentNumber" placeholder="Example: A203" required>
+
+      <label>Maintenance Category</label>
+      <select name="category" required>
+        <option value="">Select category</option>
+        <option value="Plumbing">Plumbing</option>
+        <option value="Electrical">Electrical</option>
+        <option value="Heating/Cooling">Heating/Cooling</option>
+        <option value="Appliance">Appliance</option>
+        <option value="General Repair">General Repair</option>
+      </select>
+
+      <label>Urgency Level</label>
+      <select name="urgency" required>
+        <option value="">Select urgency</option>
+        <option value="Low">Low</option>
+        <option value="Medium">Medium</option>
+        <option value="High">High</option>
+        <option value="Emergency">Emergency</option>
+      </select>
+
+      <label>Description</label>
+      <textarea name="description" rows="5" placeholder="Describe the maintenance issue" required></textarea>
+
+      <label>Upload Supporting File</label>
+      <input type="file" name="supportingFile">
+
+      <button type="submit" class="btn">Submit Request</button>
+    </form>
+
+    <a href="/" class="back-link">Back to Home</a>
+  </div>
+</body>
+</html>
